@@ -1,0 +1,32 @@
+[user]
+  name = Paul Friedman
+  email = paulrfri@gmail.com
+[color]
+  ui = true
+[core]
+  editor = vim
+  pager = diff-highlight | less -r
+[alias]
+  br = branch
+  ci = commit
+  co = checkout
+  st = status --short
+  ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+  lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+  ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+  dl = "!git ll -1"
+  dlc = diff --cached HEAD^
+  ds = diff --staged
+  la = "!git config -l | grep alias | cut -c 7-"
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  lg = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%cr)%C(reset) %C(white)%s%C(reset) %C(bold white)- %cn%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
+  pu = "!git push --set-upstream origin `git rev-parse --abbrev-ref HEAD`"
+  su = submodule update --init
+[color "diff-highlight"]
+  oldNormal = "red bold"
+  oldHighlight = "red bold 52"
+  newNormal = "green bold"
+  newHighlight = "green bold 22"
+[push]
+  default = simple
