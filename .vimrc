@@ -13,7 +13,7 @@ call vundle#begin()
   Plugin 'jistr/vim-nerdtree-tabs'
   Plugin 'airblade/vim-gitgutter'
   Plugin 'bling/vim-airline'
-  Plugin 'scrooloose/nerdcommenter'
+  Plugin 'tpope/vim-commentary'
   Plugin 'rking/ag.vim'
   Plugin 'jpo/vim-railscasts-theme'
   Plugin 'tpope/vim-eunuch'
