@@ -3,6 +3,7 @@
 
 let mapleader=" "
 let g:airline_powerline_fonts = 1
+let NERDTreeShowHidden=1
 
 " begin vundle
 set rtp+=~/.vim/bundle/Vundle.vim
