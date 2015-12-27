@@ -5,6 +5,11 @@ let mapleader=" "
 let g:airline_powerline_fonts = 1
 let NERDTreeShowHidden=1
 
+" install vundle unless present
+if !isdirectory(expand("~/.vim/bundle/Vundle.vim"))
+ silent !git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+endif
+
 " begin vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
