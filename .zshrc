@@ -1,22 +1,26 @@
+DISABLE_CORRECTION="true"
+
 export TERM=xterm-256color
-export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
+# export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
 export LESS=" -R "
+export NVM_DIR=$HOME/.nvm
 
 source $HOME/antigen.zsh
 
+# chruby
 if [ -f /usr/local/share/chruby/chruby.sh ]; then
   . /usr/local/share/chruby/chruby.sh
   . /usr/local/share/chruby/auto.sh
   chruby 2.3.0 # TODO: read .ruby-version
 fi
 
-DISABLE_CORRECTION="true"
+# nvm
+if [ -f "$NVM_DIR/nvm.sh" ]; then
+  . "$NVM_DIR/nvm.sh"
+fi
 
 # OSX-only stuff until I port it
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  export NVM_DIR=$HOME/.nvm
-  . $(brew --prefix nvm)/nvm.sh
-
   ln -sf "$(brew --prefix)/share/git-core/contrib/diff-highlight/diff-highlight" \
     /usr/local/bin/diff-highlight
 fi
