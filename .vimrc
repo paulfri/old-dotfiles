@@ -27,11 +27,18 @@ call vundle#end()
 filetype plugin indent on
 " end vundle
 
+set t_Co=256
 syntax on
 colorscheme railscasts
 
-set t_Co=256
+inoremap kj <Esc>
+inoremap <Left> <NOP>
+inoremap <Right> <NOP>
+inoremap <Up> <NOP>
+inoremap <Down> <NOP>
+map <Leader>n <plug>NERDTreeTabsToggle<CR>
 
+set timeoutlen=200
 set nocompatible
 set noswapfile
 set nobackup
@@ -49,19 +56,15 @@ set wildmenu
 
 set number
 set numberwidth=5
+set list listchars=tab:»·,trail:·,nbsp:·
+set textwidth=80
+set colorcolumn=+1,+21
 
 " soft tabs, 2 spaces
 set tabstop=2
 set shiftwidth=2
 set shiftround
 set expandtab
-
-" show extra whitespace
-set list listchars=tab:»·,trail:·,nbsp:·
-
-" 80 character column
-set textwidth=80
-set colorcolumn=+1,+21
 
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
@@ -73,5 +76,3 @@ if executable('ag')
   nnoremap \ :Ag<SPACE>
 endif
 
-" maps
-map <Leader>n <plug>NERDTreeTabsToggle<CR>
