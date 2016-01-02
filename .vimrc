@@ -1,6 +1,9 @@
 " .vimrc
 " @paulfri (2015-12-19)
 
+scriptencoding utf-8
+set encoding=utf-8
+
 let mapleader=" "
 let g:airline_powerline_fonts = 1
 let NERDTreeShowHidden=1

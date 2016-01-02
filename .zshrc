@@ -1,10 +1,10 @@
 DISABLE_CORRECTION="true"
 
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 export TERM=xterm-256color
-# export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
 export LESS=" -R "
 export NVM_DIR=$HOME/.nvm
-
 source $HOME/antigen.zsh
 
 # chruby
