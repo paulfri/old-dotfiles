@@ -6,8 +6,8 @@ export EDITOR='vim'
 export VISUAL='vim'
 export LESS='--long-prompt --LINE-NUMBERS --hilite-search --ignore-case --status-column --underline-special --QUIET'
 
-export NVM_DIR=$HOME/.nvm
-export CHRUBY_DIR=/usr/local/share
+export NVM_DIR="$HOME/.nvm"
+export CHRUBY_DIR='/usr/local/share/chruby'
 
 # work stuff, ignore
 export TRIPPING_USER='paul'
