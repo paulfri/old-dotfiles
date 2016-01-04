@@ -1,3 +1,10 @@
+# a couple things I want to do with this theme:
+# 1. clear prompt (λ) color when not in a git repo
+# 2. show # of commits ahead/behind before prompt
+# 3. set prompt yellow with uncomitted changes, red with untracked files
+# 4. probably find a new color for the git branch, as it kind of blends in atm
+# maybe one day...
+
 local blue="%{$fg[blue]%}"
 local cyan="%{$fg[cyan]%}"
 local green="%{$fg[green]%}"
