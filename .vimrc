@@ -9,7 +9,7 @@ set t_Co=256
 
 " sanity reigns
 let mapleader=" "
-inoremap kj <Esc>
+inoremap jk <Esc>
 
 " install vundle
 if !isdirectory(expand("~/.vim/bundle/Vundle.vim"))
@@ -29,6 +29,9 @@ call vundle#begin()
   Plugin 'tpope/vim-commentary'
   Plugin 'tpope/vim-eunuch'
   Plugin 'Valloric/YouCompleteMe'
+  Plugin 'vim-ruby/vim-ruby'
+  Plugin 'elixir-lang/vim-elixir'
+  Plugin 'mxw/vim-jsx'
 call vundle#end()
 filetype plugin indent on
 
