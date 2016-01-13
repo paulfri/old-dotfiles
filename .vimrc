@@ -32,6 +32,7 @@ call vundle#begin()
   Plugin 'vim-ruby/vim-ruby'
   Plugin 'elixir-lang/vim-elixir'
   Plugin 'mxw/vim-jsx'
+  Plugin 'ConradIrwin/vim-bracketed-paste'
 call vundle#end()
 filetype plugin indent on
 
