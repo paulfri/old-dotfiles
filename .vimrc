@@ -33,6 +33,7 @@ call vundle#begin()
   Plugin 'elixir-lang/vim-elixir'
   Plugin 'mxw/vim-jsx'
   Plugin 'ConradIrwin/vim-bracketed-paste'
+  Plugin 'JazzCore/ctrlp-cmatcher'
 call vundle#end()
 filetype plugin indent on
 
@@ -71,7 +72,8 @@ set tabstop=2
 
 " need 4 speed
 if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor
+  set grepprg=ag\ --nogroup\ --nocolor\ --column\ --hidden
+  set grepformat=%f:%l:%c%m
   let g:ctrlp_match_window = 'bottom,order:ttb'
   let g:ctrlp_switch_buffer = 0
   let g:ctrlp_use_caching = 0
@@ -87,4 +89,5 @@ map <leader><space> :nohlsearch<CR>
 map <leader>s :mksession<CR>
 
 let g:airline_powerline_fonts = 1
+let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
 let NERDTreeShowHidden=1
