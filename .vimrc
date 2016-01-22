@@ -33,7 +33,7 @@ call vundle#begin()
   Plugin 'elixir-lang/vim-elixir'
   Plugin 'mxw/vim-jsx'
   Plugin 'ConradIrwin/vim-bracketed-paste'
-  Plugin 'JazzCore/ctrlp-cmatcher'
+  Plugin 'vim-scripts/bufkill.vim'
 call vundle#end()
 filetype plugin indent on
 
