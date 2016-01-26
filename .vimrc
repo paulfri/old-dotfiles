@@ -28,6 +28,7 @@ call vundle#begin()
   Plugin 'scrooloose/nerdtree'
   Plugin 'tpope/vim-commentary'
   Plugin 'tpope/vim-eunuch'
+  Plugin 'tpope/vim-fugitive'
   Plugin 'Valloric/YouCompleteMe'
   Plugin 'vim-ruby/vim-ruby'
   Plugin 'elixir-lang/vim-elixir'
