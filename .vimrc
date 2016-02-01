@@ -28,6 +28,7 @@ call vundle#begin()
   Plugin 'scrooloose/nerdtree'
   Plugin 'tpope/vim-commentary'
   Plugin 'tpope/vim-eunuch'
+  Plugin 'tpope/vim-unimpaired'
   Plugin 'vim-ruby/vim-ruby'
   Plugin 'vim-scripts/bufkill.vim'
 call vundle#end()
@@ -35,6 +36,7 @@ filetype plugin indent on
 
 syntax on
 colorscheme gruvbox
+set background=dark
 
 set timeoutlen=200
 set noswapfile
