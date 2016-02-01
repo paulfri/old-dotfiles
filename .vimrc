@@ -1,7 +1,3 @@
-" .vimrc
-" @paulfri (2015-12-19)
-
-" either improve or break compatibility
 set nocompatible
 scriptencoding utf-8
 set encoding=utf-8
@@ -19,27 +15,26 @@ endif
 " vundle it up
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+  Plugin 'ConradIrwin/vim-bracketed-paste'
+  Plugin 'Valloric/YouCompleteMe'
   Plugin 'airblade/vim-gitgutter'
   Plugin 'bling/vim-airline'
   Plugin 'ctrlpvim/ctrlp.vim'
+  Plugin 'elixir-lang/vim-elixir'
   Plugin 'jistr/vim-nerdtree-tabs'
-  Plugin 'jpo/vim-railscasts-theme'
+  Plugin 'morhetz/gruvbox'
+  Plugin 'othree/yajs.vim'
   Plugin 'rking/ag.vim'
   Plugin 'scrooloose/nerdtree'
   Plugin 'tpope/vim-commentary'
   Plugin 'tpope/vim-eunuch'
-  Plugin 'tpope/vim-fugitive'
-  Plugin 'Valloric/YouCompleteMe'
   Plugin 'vim-ruby/vim-ruby'
-  Plugin 'elixir-lang/vim-elixir'
-  Plugin 'mxw/vim-jsx'
-  Plugin 'ConradIrwin/vim-bracketed-paste'
   Plugin 'vim-scripts/bufkill.vim'
 call vundle#end()
 filetype plugin indent on
 
 syntax on
-colorscheme railscasts
+colorscheme gruvbox
 
 set timeoutlen=200
 set noswapfile
@@ -90,5 +85,4 @@ map <leader><space> :nohlsearch<CR>
 map <leader>s :mksession<CR>
 
 let g:airline_powerline_fonts = 1
-let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
 let NERDTreeShowHidden=1

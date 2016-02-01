@@ -5,7 +5,7 @@
   ui = true
 [core]
   editor = vim
-#  pager = diff-highlight | less -r
+  pager = diff-highlight | less -r
 [alias]
   br = branch
   ci = commit
