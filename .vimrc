@@ -2,6 +2,7 @@ set nocompatible
 scriptencoding utf-8
 set encoding=utf-8
 set t_Co=256
+set mouse=a
 
 " sanity reigns
 let mapleader=" "
