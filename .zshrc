@@ -9,10 +9,6 @@ export LESS='--long-prompt --LINE-NUMBERS --hilite-search --ignore-case --status
 export NVM_DIR="$HOME/.nvm"
 export CHRUBY_DIR='/usr/local/share/chruby'
 
-# work stuff, ignore
-export TRIPPING_USER='paul'
-export TRIPPING_VAGRANT_CHEF_REPO_PATH="$HOME/src/tripping/chef"
-
 source $HOME/.antigen/antigen.zsh
 
 [[ -f $CHRUBY_DIR/chruby.sh ]] && . $CHRUBY_DIR/chruby.sh
