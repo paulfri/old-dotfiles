@@ -47,6 +47,7 @@ cask 'dash'
 cask 'dropbox'
 cask 'firefox'
 cask 'google-chrome'
+cask 'kaomoji'
 cask 'openemu'
 cask 'sequel-pro'
 cask 'slack'
@@ -79,4 +80,3 @@ cask 'font-ubuntu'
 cask 'font-vt323'
 
 # MAS: calcbot, tweetbot, xscope, safari TP, pixelmator, daisydisk
-# DL: kaomoji
