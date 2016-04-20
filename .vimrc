@@ -22,6 +22,7 @@ call vundle#begin()
   Plugin 'bling/vim-airline'
   Plugin 'ctrlpvim/ctrlp.vim'
   Plugin 'elixir-lang/vim-elixir'
+  Plugin 'fatih/vim-go'
   Plugin 'jistr/vim-nerdtree-tabs'
   Plugin 'morhetz/gruvbox'
   Plugin 'othree/yajs.vim'
