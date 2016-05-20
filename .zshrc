@@ -10,7 +10,7 @@ export HOMEBREW_NO_ANALYTICS=1
 export GOROOT=$HOME/go
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
-export NVM_DIR="$HOME/.nvm"
+export NVM_DIR="/usr/local/opt/nvm"
 export CHRUBY_DIR='/usr/local/share/chruby'
 
 source $HOME/.antigen/antigen.zsh

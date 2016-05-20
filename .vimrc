@@ -23,15 +23,20 @@ call vundle#begin()
   Plugin 'ctrlpvim/ctrlp.vim'
   Plugin 'elixir-lang/vim-elixir'
   Plugin 'fatih/vim-go'
+  Plugin 'jeffkreeftmeijer/vim-numbertoggle'
   Plugin 'jistr/vim-nerdtree-tabs'
   Plugin 'morhetz/gruvbox'
+  Plugin 'ngmy/vim-rubocop'
   Plugin 'othree/yajs.vim'
   Plugin 'rking/ag.vim'
+  Plugin 'rust-lang/rust.vim'
   Plugin 'scrooloose/nerdtree'
   Plugin 'tpope/vim-commentary'
   Plugin 'tpope/vim-eunuch'
   Plugin 'tpope/vim-fugitive'
   Plugin 'tpope/vim-unimpaired'
+  Plugin 'tyru/open-browser-github.vim'
+  Plugin 'tyru/open-browser.vim'
   Plugin 'vim-ruby/vim-ruby'
   Plugin 'vim-scripts/bufkill.vim'
 call vundle#end()
@@ -85,9 +90,11 @@ if executable('ag')
   nnoremap \ :Ag<SPACE>
 endif
 
+" whatever else
 map <leader>n <plug>NERDTreeTabsToggle<CR>
 map <leader><space> :nohlsearch<CR>
 map <leader>s :mksession<CR>
 
 let g:airline_powerline_fonts = 1
-let NERDTreeShowHidden=1
+let NERDTreeShowHidden = 1
+let g:rustfmt_autosave = 1
