@@ -1,14 +1,14 @@
 DISABLE_CORRECTION='true'
 
+alias vim=nvim
+
 export LANG='en_US.UTF-8'
 export LC_ALL='en_US.UTF-8'
 export EDITOR='vim'
 export VISUAL='vim'
 export LESS='--long-prompt --LINE-NUMBERS --hilite-search --ignore-case --status-column --underline-special --QUIET'
 export HOMEBREW_NO_ANALYTICS=1
-
-export GOROOT=$HOME/go
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export PATH=$PATH:$HOME/.cargo/bin
 
 export NVM_DIR="/usr/local/opt/nvm"
 export CHRUBY_DIR='/usr/local/share/chruby'
@@ -51,6 +51,7 @@ antigen bundles <<EOBUNDLES
   lol
   npm
   nyan
+  mix
   rails
   rake-fast
   redis-cli
@@ -62,3 +63,5 @@ antigen bundles <<EOBUNDLES
 EOBUNDLES
 antigen theme $HOME paulfri
 antigen apply
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
