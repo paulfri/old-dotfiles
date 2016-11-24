@@ -1,5 +1,5 @@
 let mapleader=" "
-inoremap jk <Esc>
+inoremap jj <Esc>
 
 if empty(glob("~/.vim/autoload/plug.vim"))
   execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
@@ -7,32 +7,32 @@ endif
 
 call plug#begin('~/.vim/plugged')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'Valloric/ListToggle'
   Plug 'airblade/vim-gitgutter'
   Plug 'bling/vim-airline'
+  Plug 'cakebaker/scss-syntax.vim'
   Plug 'cespare/vim-toml', { 'for': 'toml' }
   Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
+  Plug 'janko-m/vim-test'
   Plug 'jeffkreeftmeijer/vim-numbertoggle'
   Plug 'junegunn/fzf', { 'do': './install --all' }
+  Plug 'kassio/neoterm'
   Plug 'morhetz/gruvbox'
+  Plug 'mustache/vim-mustache-handlebars'
+  Plug 'neomake/neomake'
+  Plug 'ntpeters/vim-better-whitespace'
   Plug 'othree/yajs.vim', { 'for': 'javascript' }
-  Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
   Plug 'rking/ag.vim'
   Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+  Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
   Plug 'timonv/vim-cargo', { 'for': 'rust' }
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-fugitive'
   Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
   Plug 'vim-scripts/bufkill.vim'
-  Plug 'ntpeters/vim-better-whitespace'
-  Plug 'neomake/neomake'
-  Plug 'kassio/neoterm'
-  Plug 'Valloric/ListToggle'
-  Plug 'cakebaker/scss-syntax.vim'
-  Plug 'mustache/vim-mustache-handlebars'
 call plug#end()
 
-" pretty colors
 syntax on
 colorscheme gruvbox
 set background=dark
@@ -102,8 +102,17 @@ let g:airline_powerline_fonts = 1
 let NERDTreeShowHidden = 1
 let g:rustfmt_autosave = 1
 
+" ==== janko-m/vim-test
+let test#strategy = "neovim"
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+" nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
+
 " ==== junegunn/fzf
 let g:fzf_layout = { 'down': '~20%' }
+let $FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 
 nnoremap <silent> <leader>g :Commits<enter>
 nnoremap <silent> <leader>b :BCommits<enter>
@@ -112,13 +121,20 @@ inoremap <silent> <C-P> <ESC>:FZF<CR>i
 
 " ==== Shougo/deoplete.nvim
 let g:deoplete#enable_at_startup = 1
-
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " ==== neomake/neomake
 autocmd! BufWritePost * Neomake
+let g:neomake_scss_stylelint_maker = {
+        \ 'errorformat':
+            \ '%+P%f,' .
+                \ '%*\s%l:%c  %t  %m,' .
+            \ '%-Q'
+    \ }
+let g:neomake_scss_enabled_makers = ['stylelint']
+
+" ==== Valloric/ListToggle
 let g:lt_location_list_toggle_map = '<leader>l'
 let g:lt_quickfix_list_toggle_map = '<leader>q'
 
@@ -130,4 +146,18 @@ let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_sort_sequence = '[\/]$,*'
 
+" ==== AltCommand
+function! AltCommand(path, vim_command)
+  let l:alternate = system("alt " . a:path)
+
+  if empty(l:alternate)
+    echo "No alternate file for " . a:path . " exists!"
+  else
+    exec a:vim_command . " " . l:alternate
+  endif
+endfunction
+nnoremap <leader>. :w<cr>:call AltCommand(expand('%'), ':vs')<cr>
+set splitright
+
+" ====
 nnoremap <silent> <leader>n :Lexplore<CR>
