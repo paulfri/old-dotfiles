@@ -16,12 +16,14 @@ call plug#begin('~/.vim/plugged')
   Plug 'janko-m/vim-test'
   Plug 'jeffkreeftmeijer/vim-numbertoggle'
   Plug 'junegunn/fzf', { 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
   Plug 'kassio/neoterm'
   Plug 'morhetz/gruvbox'
   Plug 'mustache/vim-mustache-handlebars'
+  Plug 'mxw/vim-jsx'
   Plug 'neomake/neomake'
   Plug 'ntpeters/vim-better-whitespace'
-  Plug 'othree/yajs.vim', { 'for': 'javascript' }
+  Plug 'pangloss/vim-javascript'
   Plug 'rking/ag.vim'
   Plug 'rust-lang/rust.vim', { 'for': 'rust' }
   Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
@@ -29,6 +31,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-speeddating'
+  Plug 'tpope/vim-endwise'
   Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
   Plug 'vim-scripts/bufkill.vim'
 call plug#end()
@@ -102,6 +106,14 @@ let g:airline_powerline_fonts = 1
 let NERDTreeShowHidden = 1
 let g:rustfmt_autosave = 1
 
+" keep search results at the center of screen
+nmap n nzz
+nmap N Nzz
+nmap * *zz
+nmap # #zz
+nmap g* g*zz
+nmap g# g#zz<Paste>
+
 " ==== janko-m/vim-test
 let test#strategy = "neovim"
 nmap <silent> <leader>t :TestNearest<CR>
@@ -134,6 +146,9 @@ let g:neomake_scss_stylelint_maker = {
     \ }
 let g:neomake_scss_enabled_makers = ['stylelint']
 
+" === mxw/vim-jsx
+let g:jsx_ext_required = 0
+
 " ==== Valloric/ListToggle
 let g:lt_location_list_toggle_map = '<leader>l'
 let g:lt_quickfix_list_toggle_map = '<leader>q'
@@ -161,3 +176,9 @@ set splitright
 
 " ====
 nnoremap <silent> <leader>n :Lexplore<CR>
+
+" ==== neovim cursor configuration
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+let &t_SI = "\<Esc>[1 q" " insert
+let &t_SR = "\<Esc>[3 q" " replace
+let &t_EI = "\<Esc>[2 q" " normal

@@ -63,3 +63,5 @@ antigen bundles <<EOBUNDLES
 EOBUNDLES
 antigen theme $HOME paulfri
 antigen apply
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
