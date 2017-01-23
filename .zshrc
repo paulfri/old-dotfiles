@@ -2,8 +2,8 @@ DISABLE_CORRECTION='true'
 
 export LANG='en_US.UTF-8'
 export LC_ALL='en_US.UTF-8'
-export EDITOR='vim'
-export VISUAL='vim'
+export EDITOR='nvim'
+export VISUAL='nvim'
 export LESS='--long-prompt --LINE-NUMBERS --hilite-search --ignore-case --status-column --underline-special --QUIET'
 export HOMEBREW_NO_ANALYTICS=1
 export CHRUBY_DIR='/usr/local/share/chruby'

@@ -29,10 +29,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
   Plug 'timonv/vim-cargo', { 'for': 'rust' }
   Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-endwise'
   Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-speeddating'
-  Plug 'tpope/vim-endwise'
   Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
   Plug 'vim-scripts/bufkill.vim'
 call plug#end()
@@ -145,6 +145,10 @@ let g:neomake_scss_stylelint_maker = {
             \ '%-Q'
     \ }
 let g:neomake_scss_enabled_makers = ['stylelint']
+
+" workaround for issues with phoenix's code reloading and neomake updating
+" the ctime/mtime of elixir source files
+let g:neomake_elixir_enabled_makers = []
 
 " === mxw/vim-jsx
 let g:jsx_ext_required = 0
