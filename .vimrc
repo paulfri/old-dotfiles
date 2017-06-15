@@ -13,17 +13,21 @@ call plug#begin('~/.vim/plugged')
   Plug 'cakebaker/scss-syntax.vim'
   Plug 'cespare/vim-toml', { 'for': 'toml' }
   Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
+  Plug 'godlygeek/tabular'
   Plug 'janko-m/vim-test'
   Plug 'jeffkreeftmeijer/vim-numbertoggle'
   Plug 'junegunn/fzf', { 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
   Plug 'kassio/neoterm'
+  Plug 'majutsushi/tagbar'
+  Plug 'mhinz/vim-startify'
   Plug 'morhetz/gruvbox'
   Plug 'mustache/vim-mustache-handlebars'
   Plug 'mxw/vim-jsx'
   Plug 'neomake/neomake'
   Plug 'ntpeters/vim-better-whitespace'
   Plug 'pangloss/vim-javascript'
+  Plug 'posva/vim-vue'
   Plug 'rking/ag.vim'
   Plug 'rust-lang/rust.vim', { 'for': 'rust' }
   Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
@@ -35,6 +39,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-speeddating'
   Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
   Plug 'vim-scripts/bufkill.vim'
+  Plug 'yegappan/mru'
 call plug#end()
 
 syntax on
@@ -46,7 +51,8 @@ set background=dark
 " set hlsearch
 " set backspace=indent,eol,start
 " set incsearch
-" set mouse=a
+set mouse=a
+set inccommand=nosplit
 " set nocompatible
 " set wildmenu
 
@@ -145,6 +151,7 @@ let g:neomake_scss_stylelint_maker = {
             \ '%-Q'
     \ }
 let g:neomake_scss_enabled_makers = ['stylelint']
+let g:neomake_javascript_enabled_makers = ['eslint']
 
 " workaround for issues with phoenix's code reloading and neomake updating
 " the ctime/mtime of elixir source files
@@ -182,7 +189,10 @@ set splitright
 nnoremap <silent> <leader>n :Lexplore<CR>
 
 " ==== neovim cursor configuration
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-let &t_SI = "\<Esc>[1 q" " insert
-let &t_SR = "\<Esc>[3 q" " replace
-let &t_EI = "\<Esc>[2 q" " normal
+" let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+" let &t_SI = "\<Esc>[1 q" " insert
+" let &t_SR = "\<Esc>[3 q" " replace
+" let &t_EI = "\<Esc>[2 q" " normal
+
+" ==== majutsushi/tagbar
+nmap <silent> <leader>r :TagbarToggle<CR>

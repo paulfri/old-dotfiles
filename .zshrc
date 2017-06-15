@@ -20,6 +20,7 @@ bindkey -M viins 'jj' vi-cmd-mode
 alias reload!=". $HOME/.zshrc"
 alias vim=nvim
 alias v='vagrant'
+alias gat='gatsby'
 alias g='git'
 alias be='bundle exec'
 alias docker-gc='docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /etc:/etc spotify/docker-gc'
@@ -60,6 +61,7 @@ antigen bundles <<EOBUNDLES
   tmux
   vagrant
   vi-mode
+  zsh-users/zsh-completions
 EOBUNDLES
 antigen theme $HOME paulfri
 antigen apply
