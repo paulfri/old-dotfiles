@@ -19,9 +19,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf', { 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
   Plug 'kassio/neoterm'
+  Plug 'leafgarland/typescript-vim'
   Plug 'majutsushi/tagbar'
   Plug 'mhinz/vim-startify'
-  Plug 'morhetz/gruvbox'
   Plug 'mustache/vim-mustache-handlebars'
   Plug 'mxw/vim-jsx'
   Plug 'neomake/neomake'
@@ -30,6 +30,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'posva/vim-vue'
   Plug 'rking/ag.vim'
   Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+  Plug 'sbdchd/neoformat'
+  Plug 'scrooloose/nerdtree'
   Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
   Plug 'timonv/vim-cargo', { 'for': 'rust' }
   Plug 'tpope/vim-commentary'
@@ -40,10 +42,13 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
   Plug 'vim-scripts/bufkill.vim'
   Plug 'yegappan/mru'
+  Plug 'jparise/vim-graphql'
+  Plug 'fatih/vim-go'
+  Plug 'danilo-augusto/vim-afterglow'
 call plug#end()
 
 syntax on
-colorscheme gruvbox
+colorscheme afterglow
 set background=dark
 
 " filetype plugin indent on
@@ -104,6 +109,10 @@ let g:syntastic_check_on_wq = 0
 " whatever else
 map <leader><space> :nohlsearch<CR>
 map <leader>s :mksession<CR>
+noremap  <C-C> <Esc>
+inoremap <C-C> <Esc>
+" lul i'm a dummy
+inoremap <Esc> <nop>
 
 nnoremap <Tab> :bnext<CR>:redraw<CR>:ls<CR>
 nnoremap <S-Tab> :bprevious<CR>:redraw<CR>:ls<CR>
@@ -186,13 +195,12 @@ nnoremap <leader>. :w<cr>:call AltCommand(expand('%'), ':vs')<cr>
 set splitright
 
 " ====
-nnoremap <silent> <leader>n :Lexplore<CR>
-
-" ==== neovim cursor configuration
-" let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-" let &t_SI = "\<Esc>[1 q" " insert
-" let &t_SR = "\<Esc>[3 q" " replace
-" let &t_EI = "\<Esc>[2 q" " normal
+nnoremap <silent> <leader>n :NERDTree<CR>
 
 " ==== majutsushi/tagbar
 nmap <silent> <leader>r :TagbarToggle<CR>
+
+" ==== neoformat
+" autocmd FileType javascript setlocal formatprg=prettier\ --stdin
+" let g:neoformat_try_formatprg = 1
+" autocmd BufWritePre *.js Neoformat
