@@ -15,22 +15,9 @@ source $HOME/.antigen/antigen.zsh
 
 bindkey -M viins 'jj' vi-cmd-mode
 
-alias vim=nvim
+alias vim='nvim'
 alias g='git'
-alias be='bundle exec'
 alias docker-gc='docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /etc:/etc spotify/docker-gc'
-
-if [[ -f /usr/share/vim/vim74/macros/less.sh ]]; then
-  alias vless='/usr/share/vim/vim74/macros/less.sh'
-elif [[ -f /usr/share/vim/vim73/macros/less.sh ]]; then
-  # homebrew puts it here for some reason?
-  alias vless='/usr/share/vim/vim73/macros/less.sh'
-fi
-
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  ln -sf "$(brew --prefix)/share/git-core/contrib/diff-highlight/diff-highlight" \
-    /usr/local/bin/diff-highlight
-fi
 
 antigen use oh-my-zsh
 antigen bundles <<EOBUNDLES
@@ -40,7 +27,6 @@ antigen bundles <<EOBUNDLES
   colored-man-pages
   colorize
   github
-  lol
   nyan
   tmux
   vi-mode
