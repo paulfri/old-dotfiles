@@ -1,6 +1,3 @@
-let mapleader=" "
-inoremap jj <Esc>
-
 if empty(glob("~/.vim/autoload/plug.vim"))
   execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
 endif
@@ -8,30 +5,28 @@ endif
 call plug#begin('~/.vim/plugged')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'airblade/vim-gitgutter'
-  Plug 'bling/vim-airline'
-  Plug 'cakebaker/scss-syntax.vim'
-  Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
-  Plug 'fatih/vim-go'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
   Plug 'jeffkreeftmeijer/vim-numbertoggle'
-  Plug 'jparise/vim-graphql'
+  Plug 'joshdick/onedark.vim'
   Plug 'junegunn/fzf', { 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
   Plug 'neomake/neomake'
-  Plug 'pangloss/vim-javascript'
   Plug 'rking/ag.vim'
-  Plug 'rust-lang/rust.vim', { 'for': 'rust' }
   Plug 'scrooloose/nerdtree'
+  Plug 'sheerun/vim-polyglot'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-fugitive'
-  Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
   Plug 'vim-scripts/bufkill.vim'
-  Plug 'jacoborus/tender.vim'
 call plug#end()
+
+set t_Co=256
+set termguicolors
+colorscheme onedark
 
 filetype plugin indent on
 syntax enable
-colorscheme tender
 set nocompatible
 set background=dark
 set backspace=indent,eol,start
@@ -41,20 +36,19 @@ set inccommand=nosplit
 set incsearch
 set mouse=a
 set wildmenu
-set termguicolors
-
 set timeoutlen=200
 set noswapfile
 set nobackup
 set nowritebackup
 set ruler
 set laststatus=2
-
+set expandtab
+set shiftround
+set shiftwidth=2
+set tabstop=2
 set hidden
 set switchbuf=useopen,usetab
 set tags=./tags;/,tags;/
-
-" need dat gfx
 set colorcolumn=+1,+21
 set cursorline
 set list listchars=tab:»·,trail:·,nbsp:·
@@ -62,49 +56,16 @@ set number
 set numberwidth=5
 set textwidth=80
 
-" soft tabs, 2 spaces
-set expandtab
-set shiftround
-set shiftwidth=2
-set tabstop=2
-
-" need 4 speed
-if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor\ --column\ --hidden
-  set grepformat=%f:%l:%c%m
-
-  " bind \ to grep shortcut
-  command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-  nnoremap \ :Ag<SPACE>
-endif
-
-" can't write code
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-" whatever else
+" === keybindings
+let mapleader=" "
 map <leader><space> :nohlsearch<CR>
 map <leader>s :mksession<CR>
-
-" lul i'm a dummy
+nnoremap <Tab> :bnext<CR>:redraw<CR>
+nnoremap <S-Tab> :bprevious<CR>:redraw<CR>
+" force myself to learn ctrl-c instead of esc
 noremap  <C-C> <Esc>
 inoremap <C-C> <Esc>
 inoremap <Esc> <nop>
-
-nnoremap <Tab> :bnext<CR>:redraw<CR>:ls<CR>
-nnoremap <S-Tab> :bprevious<CR>:redraw<CR>:ls<CR>
-
-let g:airline_powerline_fonts = 1
-let NERDTreeShowHidden = 1
-let g:rustfmt_autosave = 1
-let g:airline_theme = 'tender'
-
 " keep search results at the center of screen
 nmap n nzz
 nmap N Nzz
@@ -112,6 +73,17 @@ nmap * *zz
 nmap # #zz
 nmap g* g*zz
 nmap g# g#zz<Paste>
+
+" ==== vim-airline/vim-airline
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='onedark'
+
+" ====  rking/ag.vim
+set grepprg=ag\ --nogroup\ --nocolor\ --column\ --hidden
+set grepformat=%f:%l:%c%m
+command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+nnoremap \ :Ag<SPACE>
 
 " ==== junegunn/fzf
 let g:fzf_layout = { 'down': '~20%' }
@@ -143,4 +115,5 @@ let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_elixir_enabled_makers = []
 
 " ==== scrooloose/nerdtree
+let NERDTreeShowHidden = 1
 nnoremap <silent> <leader>n :NERDTree<CR>

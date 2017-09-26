@@ -18,11 +18,11 @@ ZSH_THEME_GIT_PROMPT_DIRTY="${red}λ${reset}"
 ZSH_THEME_GIT_PROMPT_CLEAN="${green}λ${reset}"
 
 local user_host="$blue%n@%m$reset"
-local working_dir="$grey%c$reset"
+local working_dir="$reset%c$reset"
 local git_prompt='$(parse_git_dirty)'
 
 local git_branch='$(git_current_branch)'
-local git_branch_c="${grey}${git_branch}${reset}"
+local git_branch_c="${reset}${git_branch}${reset}"
 local return_code="%(?..$red %? ↵$reset)"
 local systime="${cyan}%*${reset}"
 
