@@ -18,6 +18,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-obsession'
   Plug 'vim-scripts/bufkill.vim'
 call plug#end()
 
