@@ -5,31 +5,37 @@ endif
 call plug#begin('~/.vim/plugged')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'airblade/vim-gitgutter'
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
   Plug 'jeffkreeftmeijer/vim-numbertoggle'
   Plug 'joshdick/onedark.vim'
   Plug 'junegunn/fzf', { 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
   Plug 'neomake/neomake'
   Plug 'rking/ag.vim'
+  Plug 'sbdchd/neoformat'
   Plug 'scrooloose/nerdtree'
   Plug 'sheerun/vim-polyglot'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-obsession'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
   Plug 'vim-scripts/bufkill.vim'
 call plug#end()
 
+set nocompatible
+filetype plugin indent on
+
+syntax enable
 set t_Co=256
 set termguicolors
-colorscheme onedark
-
-filetype plugin indent on
-syntax enable
-set nocompatible
 set background=dark
+colorscheme onedark
+highlight CursorLine  cterm=NONE ctermbg=darkred ctermfg=white guibg=Grey23
+highlight ColorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=Grey23
+set cursorline
+set colorcolumn=+1,+21
+
 set backspace=indent,eol,start
 set encoding=utf-8
 set hlsearch
@@ -50,8 +56,6 @@ set tabstop=2
 set hidden
 set switchbuf=useopen,usetab
 set tags=./tags;/,tags;/
-set colorcolumn=+1,+21
-set cursorline
 set list listchars=tab:»·,trail:·,nbsp:·
 set number
 set numberwidth=5
@@ -99,6 +103,9 @@ inoremap <silent> <C-P> <ESC>:FZF<CR>i
 let g:deoplete#enable_at_startup = 1
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
+" ==== sbdchd/neoformat
+autocmd BufWritePre *.js Neoformat
 
 " ==== neomake/neomake
 autocmd! BufWritePost * Neomake
