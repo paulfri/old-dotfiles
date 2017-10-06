@@ -124,4 +124,4 @@ let g:neomake_elixir_enabled_makers = []
 
 " ==== scrooloose/nerdtree
 let NERDTreeShowHidden = 1
-nnoremap <silent> <leader>n :NERDTree<CR>
+nnoremap <silent> <leader>n :NERDTreeToggle<CR>
