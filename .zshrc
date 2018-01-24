@@ -21,7 +21,6 @@ alias docker-gc='docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v
 
 antigen use oh-my-zsh
 antigen bundles <<EOBUNDLES
-  brew
   bundler
   chruby
   colored-man-pages

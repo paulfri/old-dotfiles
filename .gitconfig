@@ -5,7 +5,7 @@
   ui = true
 [core]
   editor = nvim
-;  pager = diff-highlight | less -r
+  pager = `brew --prefix git`/share/git-core/contrib/diff-highlight/diff-highlight | less -r
 [alias]
   br = branch
   ci = commit
@@ -25,10 +25,10 @@
   su = submodule update --init
   am = commit --amend --no-edit
   fp = push --force
-; [color "diff-highlight"]
-;   oldNormal = "red bold"
-;   oldHighlight = "red bold 52"
-;   newNormal = "green bold"
-;   newHighlight = "green bold 22"
+[color "diff-highlight"]
+  oldNormal = "red bold"
+  oldHighlight = "red bold 52"
+  newNormal = "green bold"
+  newHighlight = "green bold 23"
 [push]
   default = simple
