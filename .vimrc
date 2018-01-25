@@ -1,5 +1,5 @@
-if empty(glob("~/.vim/autoload/plug.vim"))
-  execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+if empty(glob("~/.config/nvim/autoload/plug.vim"))
+  execute '!curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.github.com/junegunn/vim-plug/master/plug.vim'
 endif
 
 call plug#begin('~/.vim/plugged')
@@ -7,7 +7,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'airblade/vim-gitgutter'
   Plug 'jeffkreeftmeijer/vim-numbertoggle'
   Plug 'joshdick/onedark.vim'
-  Plug 'junegunn/fzf', { 'do': './install --all' }
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
   Plug 'neomake/neomake'
   Plug 'rking/ag.vim'
@@ -27,12 +27,10 @@ set nocompatible
 filetype plugin indent on
 
 syntax enable
-set t_Co=256
-set termguicolors
+" set t_Co=256
+" set termguicolors
 set background=dark
 colorscheme onedark
-highlight CursorLine  cterm=NONE ctermbg=darkred ctermfg=white guibg=Grey23
-highlight ColorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=Grey23
 set cursorline
 set colorcolumn=+1,+21
 
