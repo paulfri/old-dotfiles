@@ -1,5 +1,6 @@
 export LANG='en_US.UTF-8'
 export LC_ALL='en_US.UTF-8'
+export TERM='xterm-256color'
 export EDITOR='nvim'
 export VISUAL='nvim'
 export LESS='--long-prompt --LINE-NUMBERS --hilite-search --ignore-case --status-column --underline-special --QUIET'
@@ -27,7 +28,6 @@ antigen bundles <<EOBUNDLES
   colorize
   github
   nyan
-  tmux
   vi-mode
   zsh-users/zsh-completions
 EOBUNDLES

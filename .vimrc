@@ -6,7 +6,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'airblade/vim-gitgutter'
   Plug 'jeffkreeftmeijer/vim-numbertoggle'
-  Plug 'joshdick/onedark.vim'
+  Plug 'rakr/vim-one'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
   Plug 'neomake/neomake'
@@ -27,10 +27,9 @@ set nocompatible
 filetype plugin indent on
 
 syntax enable
-" set t_Co=256
-" set termguicolors
+colorscheme one
 set background=dark
-colorscheme onedark
+set termguicolors
 set cursorline
 set colorcolumn=+1,+21
 
