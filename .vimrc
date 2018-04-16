@@ -18,6 +18,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-eunuch'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-obsession'
+  Plug 'tpope/vim-rhubarb'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'vim-scripts/bufkill.vim'
@@ -103,6 +104,8 @@ autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " ==== sbdchd/neoformat
 autocmd BufWritePre *.js Neoformat
+autocmd BufWritePre *.ex Neoformat
+autocmd BufWritePre *.exs Neoformat
 
 " ==== neomake/neomake
 autocmd! BufWritePost * Neomake

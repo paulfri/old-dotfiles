@@ -1,6 +1,7 @@
 [user]
   name = Paul Friedman
-  email = paulfri@tty.moe
+  email = paulrfri@gmail.com
+  signingkey = D5313E01E91D57BD306B4475BD668B8822344B3A
 [color]
   ui = true
 [core]
