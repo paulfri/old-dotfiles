@@ -104,6 +104,8 @@ autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " ==== sbdchd/neoformat
 autocmd BufWritePre *.js Neoformat
+autocmd BufWritePre *.json Neoformat
+autocmd BufWritePre *.ts Neoformat
 autocmd BufWritePre *.ex Neoformat
 autocmd BufWritePre *.exs Neoformat
 
