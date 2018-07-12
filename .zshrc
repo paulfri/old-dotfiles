@@ -1,6 +1,5 @@
 export LANG='en_US.UTF-8'
 export LC_ALL='en_US.UTF-8'
-export TERM='xterm-256color'
 export EDITOR='nvim'
 export VISUAL='nvim'
 export LESS='--long-prompt --LINE-NUMBERS --hilite-search --ignore-case --status-column --QUIET'
