@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+set -e
+
+cd $HOME
+
+mkdir -p .config/nvim || true
+
+HOMEBREW_URL=https://raw.githubusercontent.com/Homebrew/install/master/install
+SYMLINKS="
+bin
+etc
+.config/nvim/init.vim
+.gemrc
+.gitconfig
+.tmux.conf
+.zshrc
+paulfri.zsh-theme"
+
+for link in $SYMLINKS; do
+  if [ -L "$HOME/$link" ]; then
+    echo "Link '$link' already exists"
+  else
+    ln -s "src/dotfiles/$link" .
+  fi
+done
+
+if command -v brew; then
+  brew update
+else
+  /usr/bin/ruby -e "$(curl -fsSL $HOMEBREW_URL)"
+fi
+
+cd $HOME/etc && brew bundle
+cd $HOME
+
+defaults write com.apple.screencapture disable-shadow -bool true
+
+pip install --upgrade pip setuptools
+pip3 install --upgrade pip setuptools
