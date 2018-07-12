@@ -27,6 +27,7 @@ antigen bundles <<EOBUNDLES
   colorize
   github
   nyan
+  urbainvaes/fzf-marks
   vi-mode
   zsh-users/zsh-completions
 EOBUNDLES
