@@ -11,7 +11,6 @@ brew "go"
 brew "httpie"
 brew "hub"
 brew "jq"
-brew "mas"
 brew "neovim"
 brew "node"
 brew "openssl"
@@ -23,6 +22,7 @@ brew "reattach-to-user-namespace"
 brew "redis"
 brew "ruby-install"
 brew "terraform"
+brew "the_silver_searcher"
 brew "tmux"
 brew "vault"
 brew "yarn"
@@ -32,9 +32,3 @@ cask "google-cloud-sdk"
 cask "font-hack"
 cask "font-open-sans"
 cask "highsierramediakeyenabler"
-
-# mas "Calcbot", id: 931657367
-# mas "Pastebot", id: 1179623856
-# mas "Reeder", id: 880001334
-# mas "Tweetbot", id: 557168941
-# mas "Tweetbot", id: 1384080005
