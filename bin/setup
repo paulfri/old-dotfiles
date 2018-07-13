@@ -27,6 +27,9 @@ paulfri.zsh-theme"
 
 # --- macOS preferences
 defaults write com.apple.screencapture disable-shadow -bool true
+defaults write com.apple.finder AppleShowAllFiles -bool true
+chflags nohidden $HOME/Library
+killall Finder
 
 # --- symlinks
 cd $HOME
