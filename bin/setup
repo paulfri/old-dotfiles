@@ -2,15 +2,16 @@
 
 set -e
 
-cd $HOME
+DOTFILES="$HOME/src/dotfiles"
 
+cd $HOME
 mkdir -p .config/nvim || true
+ln -s "$DOTFILES/.config/nvim/init.vim" "$HOME/.config/nvim" || true
 
 HOMEBREW_URL=https://raw.githubusercontent.com/Homebrew/install/master/install
 SYMLINKS="
 bin
 etc
-.config/nvim/init.vim
 .gemrc
 .gitconfig
 .tmux.conf
