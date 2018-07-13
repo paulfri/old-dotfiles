@@ -6,7 +6,8 @@ export LESS='--long-prompt --LINE-NUMBERS --hilite-search --ignore-case --status
 export DISABLE_CORRECTION='true'
 export HOMEBREW_NO_ANALYTICS=1
 export CHRUBY_DIR='/usr/local/share/chruby'
-export GOPATH='/Users/paulfri/go'
+export GOPATH="$HOME/go"
+export PATH="$HOME/bin:$PATH"
 
 source $HOME/.antigen/antigen.zsh
 [[ -f $CHRUBY_DIR/chruby.sh ]] && . $CHRUBY_DIR/chruby.sh

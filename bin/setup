@@ -1,13 +1,20 @@
 #!/usr/bin/env bash
 
+#############################################################
+# setup
+#
+# Install or update system components based on my dotfiles.
+# https://github.com/paulfri/dotfiles
+#
+# Should run idempotently, so run both for installing and
+# updating.
+#############################################################
+
 set -e
 
 DOTFILES="$HOME/src/dotfiles"
-
-cd $HOME
-mkdir -p .config/nvim || true
-ln -s "$DOTFILES/.config/nvim/init.vim" "$HOME/.config/nvim" || true
-
+CHRUBY_DIR='/usr/local/share/chruby'
+RUBY_VERSION="ruby-$(cat .ruby-version)"
 HOMEBREW_URL=https://raw.githubusercontent.com/Homebrew/install/master/install
 SYMLINKS="
 bin
@@ -18,6 +25,14 @@ etc
 .zshrc
 paulfri.zsh-theme"
 
+# --- macOS preferences
+defaults write com.apple.screencapture disable-shadow -bool true
+
+# --- symlinks
+cd $HOME
+mkdir -p .config/nvim || true
+ln -s "$DOTFILES/.config/nvim/init.vim" "$HOME/.config/nvim" || true
+
 for link in $SYMLINKS; do
   if [ -L "$HOME/$link" ]; then
     echo "Link '$link' already exists"
@@ -26,16 +41,21 @@ for link in $SYMLINKS; do
   fi
 done
 
+# --- homebrew installation and packages
 if command -v brew; then
   brew update
 else
   /usr/bin/ruby -e "$(curl -fsSL $HOMEBREW_URL)"
 fi
 
-cd $HOME/etc && brew bundle
-cd $HOME
+cd $HOME/etc && brew bundle && brew cleanup
 
-defaults write com.apple.screencapture disable-shadow -bool true
+# --- ruby installation
+source $CHRUBY_DIR/chruby.sh
+chruby $RUBY_VERSION || ruby-install --cleanup $RUBY_VERSION
+gem update --system
+gem install bundler
 
+# --- python updates
 pip install --upgrade pip setuptools
 pip3 install --upgrade pip setuptools
