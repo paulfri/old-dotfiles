@@ -31,6 +31,7 @@ antigen bundles <<EOBUNDLES
   urbainvaes/fzf-marks
   vi-mode
   zsh-users/zsh-completions
+  zsh-users/zsh-syntax-highlighting
 EOBUNDLES
 antigen theme $HOME paulfri
 antigen apply
