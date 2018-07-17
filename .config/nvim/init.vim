@@ -61,10 +61,14 @@ set textwidth=80
 
 " === keybindings
 let mapleader=" "
-map <leader><space> :nohlsearch<CR>
-map <leader>s :mksession<CR>
+noremap  <C-w> :BD<CR>
+nnoremap <leader><space> :nohlsearch<CR>
+nnoremap <leader>s :mksession<CR>
 nnoremap <Tab> :bnext<CR>:redraw<CR>
 nnoremap <S-Tab> :bprevious<CR>:redraw<CR>
+" copy relative/absolute filepath to clipboard
+nnoremap <leader>cf :let @*=expand("%")<CR>
+nnoremap <leader>CF :let @*=expand("%:p")<CR>
 " force myself to learn ctrl-c instead of esc
 noremap  <C-C> <Esc>
 inoremap <C-C> <Esc>
