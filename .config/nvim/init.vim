@@ -61,7 +61,7 @@ set textwidth=80
 
 " === keybindings
 let mapleader=" "
-noremap  <C-w> :BD<CR>
+noremap  <C-q> :BD<CR>
 nnoremap <leader><space> :nohlsearch<CR>
 nnoremap <leader>s :mksession<CR>
 nnoremap <Tab> :bnext<CR>:redraw<CR>
