@@ -28,8 +28,7 @@ etc
 .gemrc
 .gitconfig
 .tmux.conf
-.zshrc
-paulfri.zsh-theme"
+.zshrc"
 
 # --- macOS preferences
 echo -e "${BLUE}Updating macOS preferences..."
