@@ -6,10 +6,11 @@ call plug#begin('~/.vim/plugged')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'airblade/vim-gitgutter'
   Plug 'jeffkreeftmeijer/vim-numbertoggle'
-  Plug 'rakr/vim-one'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
+  Plug 'ludovicchabant/vim-gutentags'
   Plug 'neomake/neomake'
+  Plug 'rakr/vim-one'
   Plug 'rking/ag.vim'
   Plug 'sbdchd/neoformat'
   Plug 'scrooloose/nerdtree'
@@ -19,6 +20,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-obsession'
   Plug 'tpope/vim-rhubarb'
+  Plug 'tpope/vim-surround'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'vim-scripts/bufkill.vim'
@@ -94,6 +96,8 @@ nnoremap \ :Ag<SPACE>
 
 " ==== junegunn/fzf
 let g:fzf_layout = { 'down': '~20%' }
+let g:fzf_tags_command = '/usr/local/bin/ctags -R --exclude=.git --exclude=node_modules'
+nnoremap <C-T> :Tags<CR>
 let $FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 
 nnoremap <silent> <leader>g :Commits<enter>
@@ -131,3 +135,9 @@ let g:neomake_elixir_enabled_makers = []
 " ==== scrooloose/nerdtree
 let NERDTreeShowHidden = 1
 nnoremap <silent> <leader>n :NERDTreeToggle<CR>
+
+" ==== gutentags
+let g:gutentags_exclude = [
+  \ '*.css', '*.html', '*.js', '*.json', '*.xml', '*.md',
+  \ 'node_modules/*'
+  \ ]

@@ -6,7 +6,8 @@
   ui = true
 [core]
   editor = nvim
-  pager = `brew --prefix git`/share/git-core/contrib/diff-highlight/diff-highlight | less -r
+  pager = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less -r
+  excludesfile = /Users/paulfri/.gitignore_global
 [alias]
   br = branch
   ci = commit
