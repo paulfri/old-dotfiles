@@ -15,17 +15,19 @@ source $ZPLUG_HOME/init.zsh
 [[ -f $CHRUBY_DIR/auto.sh ]] && . $CHRUBY_DIR/auto.sh
 [[ -f $HOME/.fzf.zsh ]] && . $HOME/.fzf.zsh
 
-bindkey -M viins 'jj' vi-cmd-mode
+bindkey -M viins "jj" vi-cmd-mode
 
 alias vim="nvim"
 alias g="git"
 alias docker-gc="docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /etc:/etc spotify/docker-gc"
 
 zplug "$DOTFILES", from:local, use:"paulfri.zsh-theme", as:theme
+zplug "ael-code/zsh-colored-man-pages"
 zplug "plugins/vi-mode", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh
 zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "urbainvaes/fzf-marks"
 
