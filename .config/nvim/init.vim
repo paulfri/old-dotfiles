@@ -4,6 +4,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'airblade/vim-gitgutter'
   Plug 'jeffkreeftmeijer/vim-numbertoggle'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
