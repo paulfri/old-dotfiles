@@ -11,7 +11,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf.vim'
   Plug 'ludovicchabant/vim-gutentags'
   Plug 'neomake/neomake'
-  Plug 'rakr/vim-one'
+  Plug 'arcticicestudio/nord-vim'
   Plug 'rking/ag.vim'
   Plug 'sbdchd/neoformat'
   Plug 'scrooloose/nerdtree'
@@ -25,13 +25,14 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'vim-scripts/bufkill.vim'
+  Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 set nocompatible
 filetype plugin indent on
 
 syntax enable
-colorscheme one
+colorscheme nord
 set background=dark
 set termguicolors
 set cursorline
@@ -87,7 +88,8 @@ nmap g# g#zz<Paste>
 " ==== vim-airline/vim-airline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='onedark'
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline_theme='nord'
 
 " ====  rking/ag.vim
 set grepprg=ag\ --nogroup\ --nocolor\ --column\ --hidden

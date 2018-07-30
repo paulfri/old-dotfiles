@@ -19,6 +19,7 @@ bindkey -M viins "jj" vi-cmd-mode
 
 alias vim="nvim"
 alias g="git"
+alias n="neofetch"
 alias docker-gc="docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /etc:/etc spotify/docker-gc"
 
 zplug "$DOTFILES", from:local, use:"paulfri.zsh-theme", as:theme
