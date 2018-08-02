@@ -9,12 +9,16 @@ export GOPATH="$HOME/go"
 export PATH="$HOME/bin:$PATH"
 export ZPLUG_HOME="/usr/local/opt/zplug"
 export DOTFILES="$HOME/src/dotfiles"
+export HISTFILE=~/.zsh_history
+export HISTSIZE=10000
+export SAVEHIST=10000
 
 source $ZPLUG_HOME/init.zsh
 [[ -f $CHRUBY_DIR/chruby.sh ]] && . $CHRUBY_DIR/chruby.sh
 [[ -f $CHRUBY_DIR/auto.sh ]] && . $CHRUBY_DIR/auto.sh
 [[ -f $HOME/.fzf.zsh ]] && . $HOME/.fzf.zsh
 
+setopt appendhistory
 bindkey -M viins "jj" vi-cmd-mode
 
 alias vim="nvim"

@@ -6,12 +6,14 @@ call plug#begin('~/.vim/plugged')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'airblade/vim-gitgutter'
+  Plug 'arcticicestudio/nord-vim'
+  Plug 'christoomey/vim-tmux-navigator'
   Plug 'jeffkreeftmeijer/vim-numbertoggle'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
   Plug 'ludovicchabant/vim-gutentags'
+  Plug 'majutsushi/tagbar'
   Plug 'neomake/neomake'
-  Plug 'arcticicestudio/nord-vim'
   Plug 'rking/ag.vim'
   Plug 'sbdchd/neoformat'
   Plug 'scrooloose/nerdtree'
@@ -25,7 +27,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'vim-scripts/bufkill.vim'
-  Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 set nocompatible
@@ -84,6 +85,9 @@ nmap * *zz
 nmap # #zz
 nmap g* g*zz
 nmap g# g#zz<Paste>
+
+" ==== majutsushi/tagbar
+nnoremap <silent> <leader>u :TagbarToggle<enter>
 
 " ==== vim-airline/vim-airline
 let g:airline_powerline_fonts = 1
