@@ -20,7 +20,7 @@ NC='\033[0m'
 
 DOTFILES="$HOME/src/dotfiles"
 CHRUBY_DIR='/usr/local/share/chruby'
-RUBY_VERSION="ruby-$(cat .ruby-version)"
+RUBY_VERSION="ruby-$(cat $HOME/.ruby-version)"
 HOMEBREW_URL='https://raw.githubusercontent.com/Homebrew/install/master/install'
 SYMLINKS="
 bin

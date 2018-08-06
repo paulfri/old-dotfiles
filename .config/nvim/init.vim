@@ -9,12 +9,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'arcticicestudio/nord-vim'
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'jeffkreeftmeijer/vim-numbertoggle'
+  Plug 'jremmen/vim-ripgrep'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
   Plug 'ludovicchabant/vim-gutentags'
   Plug 'majutsushi/tagbar'
   Plug 'neomake/neomake'
-  Plug 'rking/ag.vim'
   Plug 'sbdchd/neoformat'
   Plug 'scrooloose/nerdtree'
   Plug 'sheerun/vim-polyglot'
@@ -95,11 +95,9 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline_theme='nord'
 
-" ====  rking/ag.vim
-set grepprg=ag\ --nogroup\ --nocolor\ --column\ --hidden
-set grepformat=%f:%l:%c%m
-command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-nnoremap \ :Ag<SPACE>
+" ====  jremmen/vim-ripgrep
+let g:rg_highlight = 1
+nnoremap \ :Rg<SPACE>
 
 " ==== junegunn/fzf
 let g:fzf_layout = { 'down': '~20%' }
