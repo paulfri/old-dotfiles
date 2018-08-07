@@ -15,6 +15,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'ludovicchabant/vim-gutentags'
   Plug 'majutsushi/tagbar'
   Plug 'neomake/neomake'
+  Plug 'ryanoasis/vim-devicons'
   Plug 'sbdchd/neoformat'
   Plug 'scrooloose/nerdtree'
   Plug 'sheerun/vim-polyglot'
