@@ -104,7 +104,12 @@ nnoremap \ :Rg<SPACE>
 let g:fzf_layout = { 'down': '~20%' }
 let g:fzf_tags_command = '/usr/local/bin/ctags -R --exclude=.git --exclude=node_modules'
 nnoremap <C-T> :Tags<CR>
-let $FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
 
 nnoremap <silent> <leader>g :Commits<enter>
 nnoremap <silent> <leader>b :BCommits<enter>

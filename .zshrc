@@ -12,6 +12,7 @@ export DOTFILES="$HOME/src/dotfiles"
 export HISTFILE=~/.zsh_history
 export HISTSIZE=10000
 export SAVEHIST=10000
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 
 source $ZPLUG_HOME/init.zsh
 [[ -f $CHRUBY_DIR/chruby.sh ]] && . $CHRUBY_DIR/chruby.sh
@@ -24,6 +25,7 @@ bindkey -M viins "jj" vi-cmd-mode
 alias vim="nvim"
 alias g="git"
 alias n="neofetch"
+alias la="ls -lah"
 alias docker-gc="docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /etc:/etc spotify/docker-gc"
 
 zplug "$DOTFILES", from:local, use:"paulfri.zsh-theme", as:theme
@@ -47,3 +49,5 @@ zplug load
 
 source "/usr/local/opt/fzf/shell/completion.zsh"
 source "/usr/local/opt/fzf/shell/key-bindings.zsh"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

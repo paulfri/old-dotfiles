@@ -12,7 +12,6 @@
 
 set -e
 
-RED='\033[0;31m'
 GREEN='\033[0;32m'
 BLUE='\033[0;36m'
 YELLOW='\033[1;33m'
@@ -20,7 +19,7 @@ NC='\033[0m'
 
 DOTFILES="$HOME/src/dotfiles"
 CHRUBY_DIR='/usr/local/share/chruby'
-RUBY_VERSION="ruby-$(cat $HOME/.ruby-version)"
+RUBY_VERSION="ruby-$(cat "$HOME"/.ruby-version)"
 HOMEBREW_URL='https://raw.githubusercontent.com/Homebrew/install/master/install'
 SYMLINKS="
 bin
@@ -34,13 +33,13 @@ etc
 echo -e "${BLUE}Updating macOS preferences..."
 defaults write com.apple.screencapture disable-shadow -bool true
 defaults write com.apple.finder AppleShowAllFiles -bool true
-chflags nohidden $HOME/Library
+chflags nohidden "$HOME"/Library
 killall Finder
 echo -e "${GREEN}macOS preferences up-to-date."
 
 # --- symlinks
 echo -e "${BLUE}Linking configuration files..."
-cd $HOME
+cd "$HOME"
 mkdir -p .config/nvim || true
 ln -s "$DOTFILES/.config/nvim/init.vim" "$HOME/.config/nvim" > /dev/null || true
 
@@ -64,14 +63,15 @@ else
 fi
 
 echo -e "${BLUE}Updating Homebrew packages...${YELLOW}"
-cd $HOME/etc && brew bundle > /dev/null && brew cleanup > /dev/null
+cd "$HOME/etc" && brew bundle > /dev/null && brew cleanup > /dev/null
 
 echo -e "${GREEN}Homebrew up-to-date.${NC}"
 
 # --- ruby installation
 echo -e "${BLUE}Updating ruby...${NC}"
-source $CHRUBY_DIR/chruby.sh
-chruby $RUBY_VERSION || ruby-install --cleanup $RUBY_VERSION > /dev/null
+# shellcheck source=/dev/null
+source "$CHRUBY_DIR/chruby.sh"
+chruby "$RUBY_VERSION" || ruby-install --cleanup "$RUBY_VERSION" > /dev/null
 gem update --system > /dev/null
 gem install bundler > /dev/null
 echo -e "${GREEN}Ruby up-to-date.${NC}"
