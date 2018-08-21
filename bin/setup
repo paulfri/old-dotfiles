@@ -18,8 +18,8 @@ YELLOW='\033[1;33m'
 NC='\033[0m'
 
 DOTFILES="$HOME/src/dotfiles"
-CHRUBY_DIR='/usr/local/share/chruby'
-RUBY_VERSION="ruby-$(cat "$HOME"/.ruby-version)"
+CHRUBY_DIR="/usr/local/opt/chruby/share/chruby"
+RUBY_VERSION="ruby-$(cat .ruby-version)"
 HOMEBREW_URL='https://raw.githubusercontent.com/Homebrew/install/master/install'
 SYMLINKS="
 bin
@@ -81,3 +81,8 @@ echo -e "${BLUE}Updating python...${NC}"
 pip install --upgrade pip setuptools > /dev/null
 pip3 install --upgrade pip setuptools > /dev/null
 echo -e "${GREEN}Python up-to-date.${NC}"
+
+# --- tpm
+if [ ! -d "$TPM_DIR" ]
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
