@@ -26,13 +26,14 @@ bin
 etc
 .gemrc
 .gitconfig
+.ruby-version
 .tmux.conf
 .zshrc"
 
 # --- macOS preferences
 echo -e "${BLUE}Updating macOS preferences..."
 defaults write com.apple.screencapture disable-shadow -bool true
-defaults write com.apple.finder AppleShowAllFiles -bool true
+defaults write com.apple.finder AppleShowAllFiles -bool false
 chflags nohidden "$HOME"/Library
 killall Finder
 echo -e "${GREEN}macOS preferences up-to-date."
@@ -84,5 +85,6 @@ echo -e "${GREEN}Python up-to-date.${NC}"
 
 # --- tpm
 if [ ! -d "$TPM_DIR" ]
+then
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
