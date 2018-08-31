@@ -2,3 +2,4 @@
 *.swp
 *.antigen-compat
 tags
+tags.lock

@@ -5,6 +5,7 @@ export VISUAL="nvim"
 export LESS="--long-prompt --LINE-NUMBERS --hilite-search --ignore-case --status-column --QUIET"
 export HOMEBREW_NO_ANALYTICS=1
 export CHRUBY_DIR="/usr/local/opt/chruby/share/chruby"
+export TPM_DIR="$HOME/.tmux/plugins/tpm"
 export GOPATH="$HOME/go"
 export PATH="$HOME/bin:$PATH"
 export ZPLUG_HOME="/usr/local/opt/zplug"
