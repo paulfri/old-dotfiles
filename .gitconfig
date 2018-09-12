@@ -7,7 +7,7 @@
 [core]
   editor = nvim
   pager = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less -r
-  excludesfile = /Users/paulfri/.gitignore_global
+	excludesfile = /Users/paulfri/.gitignore
 [alias]
   br = branch
   ci = commit

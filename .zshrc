@@ -25,6 +25,7 @@ bindkey -M viins "jj" vi-cmd-mode
 
 alias vim="nvim"
 alias g="git"
+alias k="kubectl"
 alias n="neofetch"
 alias la="ls -lah"
 alias docker-gc="docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /etc:/etc spotify/docker-gc"
@@ -52,3 +53,9 @@ source "/usr/local/opt/fzf/shell/completion.zsh"
 source "/usr/local/opt/fzf/shell/key-bindings.zsh"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/paulfri/src/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/paulfri/src/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/paulfri/src/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/paulfri/src/google-cloud-sdk/completion.zsh.inc'; fi

@@ -11,6 +11,7 @@
 #############################################################
 
 set -e
+cd "$HOME"
 
 GREEN='\033[0;32m'
 BLUE='\033[0;36m'
@@ -41,7 +42,6 @@ echo -e "${GREEN}macOS preferences up-to-date."
 
 # --- symlinks
 echo -e "${BLUE}Linking configuration files..."
-cd "$HOME"
 
 mkdir -p .config/nvim || true
 if [ ! -L "$HOME/.config/nvim/init.vim" ]; then
