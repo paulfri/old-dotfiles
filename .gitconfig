@@ -6,8 +6,10 @@
   ui = true
 [core]
   editor = nvim
-  pager = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less -r
-	excludesfile = /Users/paulfri/.gitignore
+  pager = diff-so-fancy | less -R
+  excludesfile = /Users/paulfri/.gitignore
+[push]
+  default = simple
 [alias]
   br = branch
   ci = commit
@@ -27,10 +29,12 @@
   su = submodule update --init
   am = commit --amend --no-edit
   fp = push --force
-[color "diff-highlight"]
-  oldNormal = "red bold"
-  oldHighlight = "red bold 52"
-  newNormal = "green bold"
-  newHighlight = "green bold 23"
-[push]
-  default = simple
+[color "diff"]
+  meta = yellow
+  frag = magenta bold
+  commit = yellow bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse
+[diff-so-fancy]
+  markEmptyLines = false
