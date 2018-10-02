@@ -122,26 +122,12 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " ==== sbdchd/neoformat
+autocmd BufWritePre *.ex Neoformat
+autocmd BufWritePre *.exs Neoformat
 autocmd BufWritePre *.js Neoformat
 autocmd BufWritePre *.json Neoformat
 autocmd BufWritePre *.ts Neoformat
-autocmd BufWritePre *.ex Neoformat
-autocmd BufWritePre *.exs Neoformat
-
-" ==== neomake/neomake
-autocmd! BufWritePost * Neomake
-let g:neomake_scss_stylelint_maker = {
-        \ 'errorformat':
-            \ '%+P%f,' .
-                \ '%*\s%l:%c  %t  %m,' .
-            \ '%-Q'
-    \ }
-let g:neomake_scss_enabled_makers = ['stylelint']
-let g:neomake_javascript_enabled_makers = ['eslint']
-
-" workaround for issues with phoenix's code reloading and neomake updating
-" the ctime/mtime of elixir source files
-let g:neomake_elixir_enabled_makers = []
+autocmd BufWritePre *.tf Neoformat
 
 " ==== scrooloose/nerdtree
 let NERDTreeShowHidden = 1

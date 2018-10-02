@@ -13,12 +13,18 @@ export DOTFILES="$HOME/src/dotfiles"
 export HISTFILE=~/.zsh_history
 export HISTSIZE=10000
 export SAVEHIST=10000
+export FZF_DIR="/usr/local/opt/fzf"
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+export GCP_SDK_DIR="$HOME/src/google-cloud-sdk"
 
 source $ZPLUG_HOME/init.zsh
 [[ -f $CHRUBY_DIR/chruby.sh ]] && . $CHRUBY_DIR/chruby.sh
 [[ -f $CHRUBY_DIR/auto.sh ]] && . $CHRUBY_DIR/auto.sh
 [[ -f $HOME/.fzf.zsh ]] && . $HOME/.fzf.zsh
+[[ -f $FZF_DIR/shell/completion.zsh ]] && . $FZF_DIR/shell/completion.zsh
+[[ -f $FZF_DIR/shell/key-bindings.zsh ]] && . $FZF_DIR/shell/key-bindings.zsh
+[[ -f $GCP_SDK_DIR/path.zsh.inc ]] && . $GCP_SDK_DIR/path.zsh.inc
+[[ -f $GCP_SDK_DIR/completion.zsh.inc ]] && . $GCP_SDK_DIR/completion.zsh.inc
 
 setopt appendhistory
 bindkey -M viins "jj" vi-cmd-mode
@@ -48,14 +54,3 @@ if ! zplug check --verbose; then
 fi
 
 zplug load
-
-source "/usr/local/opt/fzf/shell/completion.zsh"
-source "/usr/local/opt/fzf/shell/key-bindings.zsh"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/paulfri/src/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/paulfri/src/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/paulfri/src/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/paulfri/src/google-cloud-sdk/completion.zsh.inc'; fi
