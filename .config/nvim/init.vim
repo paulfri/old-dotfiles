@@ -12,10 +12,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'jremmen/vim-ripgrep'
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
-  Plug 'ludovicchabant/vim-gutentags'
   Plug 'majutsushi/tagbar'
   Plug 'neomake/neomake'
-  Plug 'ryanoasis/vim-devicons'
   Plug 'sbdchd/neoformat'
   Plug 'scrooloose/nerdtree'
   Plug 'sheerun/vim-polyglot'
@@ -102,7 +100,6 @@ nnoremap \ :Rg<SPACE>
 
 " ==== junegunn/fzf
 let g:fzf_layout = { 'down': '~20%' }
-let g:fzf_tags_command = '/usr/local/bin/ctags -R --exclude=.git --exclude=node_modules'
 nnoremap <C-T> :Tags<CR>
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
@@ -132,9 +129,3 @@ autocmd BufWritePre *.tf Neoformat
 " ==== scrooloose/nerdtree
 let NERDTreeShowHidden = 1
 nnoremap <silent> <leader>n :NERDTreeToggle<CR>
-
-" ==== gutentags
-let g:gutentags_exclude = [
-  \ '*.css', '*.html', '*.js', '*.json', '*.xml', '*.md',
-  \ 'node_modules/*'
-  \ ]

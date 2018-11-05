@@ -32,6 +32,7 @@ bindkey -M viins "jj" vi-cmd-mode
 alias vim="nvim"
 alias g="git"
 alias k="kubectl"
+alias kc="kubectx"
 alias n="neofetch"
 alias la="ls -lah"
 alias docker-gc="docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /etc:/etc spotify/docker-gc"
