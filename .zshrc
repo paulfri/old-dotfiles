@@ -26,16 +26,17 @@ source $ZPLUG_HOME/init.zsh
 [[ -f $GCP_SDK_DIR/path.zsh.inc ]] && . $GCP_SDK_DIR/path.zsh.inc
 [[ -f $GCP_SDK_DIR/completion.zsh.inc ]] && . $GCP_SDK_DIR/completion.zsh.inc
 
-setopt appendhistory
+setopt incappendhistory
 bindkey -M viins "jj" vi-cmd-mode
 
 alias vim="nvim"
+alias d="docker"
 alias g="git"
 alias k="kubectl"
-alias kc="kubectx"
-alias n="neofetch"
+alias kx="kubectx"
 alias la="ls -lah"
 alias docker-gc="docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /etc:/etc spotify/docker-gc"
+alias tc='clear; tmux clear-history; clear'
 
 zplug "$DOTFILES", from:local, use:"paulfri.zsh-theme", as:theme
 zplug "ael-code/zsh-colored-man-pages"
@@ -55,3 +56,7 @@ if ! zplug check --verbose; then
 fi
 
 zplug load
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+stty sane

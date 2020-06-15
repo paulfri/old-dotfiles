@@ -1,7 +1,6 @@
 [user]
   name = Paul Friedman
   email = paulrfri@gmail.com
-  signingkey = D5313E01E91D57BD306B4475BD668B8822344B3A
 [color]
   ui = true
 [core]
@@ -12,7 +11,7 @@
   default = simple
 [alias]
   br = branch
-  ci = commit
+  ci = commit --verbose
   co = checkout
   st = status --short
   ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
@@ -38,3 +37,5 @@
   whitespace = red reverse
 [diff-so-fancy]
   markEmptyLines = false
+[pull]
+	ff = only

@@ -62,6 +62,7 @@ set list listchars=tab:»·,trail:·,nbsp:·
 set number
 set numberwidth=5
 set textwidth=80
+set clipboard=unnamedplus
 
 " === keybindings
 let mapleader=" "
@@ -70,10 +71,6 @@ nnoremap <leader><space> :nohlsearch<CR>
 nnoremap <leader>s :mksession<CR>
 nnoremap <Tab> :bnext<CR>:redraw<CR>
 nnoremap <S-Tab> :bprevious<CR>:redraw<CR>
-" copy relative/absolute filepath to clipboard
-nnoremap <leader>cf :let @*=expand("%")<CR>
-nnoremap <leader>CF :let @*=expand("%:p")<CR>
-" force myself to learn ctrl-c instead of esc
 noremap  <C-C> <Esc>
 inoremap <C-C> <Esc>
 inoremap <Esc> <nop>
@@ -84,6 +81,11 @@ nmap * *zz
 nmap # #zz
 nmap g* g*zz
 nmap g# g#zz<Paste>
+" copy relative/absolute filepath to clipboard
+nnoremap <leader>cf :let @*=expand("%")<CR>
+nnoremap <leader>CF :let @*=expand("%:p")<CR>
+" pretty print json
+nnoremap <leader>pp :%!jq .<CR>
 
 " ==== majutsushi/tagbar
 nnoremap <silent> <leader>u :TagbarToggle<enter>
@@ -94,7 +96,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline_theme='nord'
 
-" ====  jremmen/vim-ripgrep
+" ==== jremmen/vim-ripgrep
 let g:rg_highlight = 1
 nnoremap \ :Rg<SPACE>
 

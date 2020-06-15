@@ -21,7 +21,7 @@ NC='\033[0m'
 DOTFILES="$HOME/src/dotfiles"
 CHRUBY_DIR="/usr/local/opt/chruby/share/chruby"
 TPM_DIR="$HOME/.tmux/plugins/tpm"
-RUBY_VERSION="ruby-$(cat .ruby-version)"
+RUBY_VERSION="ruby-$(cat $HOME/src/dotfiles/.ruby-version)"
 HOMEBREW_URL='https://raw.githubusercontent.com/Homebrew/install/master/install'
 SYMLINKS="
 bin
@@ -76,7 +76,7 @@ echo -e "${BLUE}Updating ruby...${NC}"
 source "$CHRUBY_DIR/chruby.sh"
 chruby "$RUBY_VERSION" || ruby-install --cleanup "$RUBY_VERSION" > /dev/null
 gem update --system > /dev/null
-gem install bundler > /dev/null
+gem install bundler neovim > /dev/null
 echo -e "${GREEN}Ruby up-to-date.${NC}"
 
 # --- python updates
