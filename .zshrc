@@ -38,7 +38,14 @@ alias la="ls -lah"
 alias docker-gc="docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /etc:/etc spotify/docker-gc"
 alias tc='clear; tmux clear-history; clear'
 
+if [[ ! -d ~/.zplug ]]; then
+  git clone https://github.com/zplug/zplug ~/.zplug
+fi
+
+source ~/.zplug/init.zsh
+
 zplug "$DOTFILES", from:local, use:"paulfri.zsh-theme", as:theme
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 zplug "ael-code/zsh-colored-man-pages"
 zplug "plugins/vi-mode", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh
@@ -56,7 +63,5 @@ if ! zplug check --verbose; then
 fi
 
 zplug load
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 stty sane
