@@ -8,7 +8,8 @@
 local blue="%{$fg[blue]%}"
 local cyan="%{$fg[cyan]%}"
 local green="%{$fg[green]%}"
-local grey="%{$fg_bold[black]%}"
+local grey="%F{242}"
+
 local red="%{$fg[red]%}"
 local reset="%{$reset_color%}"
 

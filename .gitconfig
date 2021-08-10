@@ -39,3 +39,5 @@
   markEmptyLines = false
 [pull]
 	ff = only
+[diff]
+	renameLimit = 10000
